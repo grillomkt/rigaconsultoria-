@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+    :root {
+      --verde-musgo: #3e503c;
+      --verde-claro: #c8e6c9;
+      --cinza-fundo: #f9f9f9;
+      --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--fonte-principal);
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin: 8px auto 20px;
+      background-color: var(--verde-musgo);
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .servico-card {
+      transition: transform 0.3s ease;
+    }
+
+    .servico-card:hover {
+      transform: scale(1.05);
+    }
+
+    .servico-card i {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    section:nth-child(even) {
+      background: linear-gradient(135deg, #f9f9f9, #e6f4ea);
+    }
+
+    section:nth-child(odd) {
+      background-color: #ffffff;
+    }
+      @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+</style>
+<script>
+    function toggleMenu() {
+      const menu = document.getElementById('popupMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById('popupMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+    function enviarWhatsApp(event) {
+    event.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    const texto = `Olá, meu nome é ${nome}.
+Email: ${email}
+Mensagem: ${mensagem}`;
+    const status = document.getElementById('mensagem-status');
+    status.style.display = 'block';
+    status.style.color = 'green';
+    status.innerHTML = '<span class="loader" style="display: inline-block; width: 16px; height: 16px; border: 3px solid #c8e6c9; border-top: 3px solid green; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></span>Redirecionando para o WhatsApp...';
+
+    setTimeout(() => {
+      window.open(`https://wa.me/5512985991058?text=${encodeURIComponent(texto)}`, '_blank');
+      status.innerHTML = '✅ Mensagem enviada com sucesso via WhatsApp!';
+    }, 1000);
+  }
+</script>
+    function toggleMenu() {
+      const menu = document.getElementById('popupMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header style="background-color: var(--verde-musgo); padding: 20px 0; text-align: center; color: white;">
+  <img src="logo-riga.jpg" alt="Logo Riga Consultoria" style="height: 60px;">
+</header>
+  <section class="hero fade-in">
+    <h1>Consultoria Ambiental e Segurança do Trabalho</h1>
+    <p>Soluções estratégicas, sustentáveis e eficazes para o seu negócio.</p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Sobre Nós</h2>
+    <p>
+      A Riga Consultoria, fundada em 2019 e localizada em Jacareí-SP, é uma empresa especializada em gestão ambiental e segurança do trabalho. Oferecemos serviços como licenciamentos ambientais, treinamentos e perícias técnicas, atendendo às esferas municipal, estadual e federal. Com foco na excelência, inovação e responsabilidade socioambiental, garantimos soluções sustentáveis e seguras para que as empresas atendam às normas legais, reduzindo riscos e promovendo o desenvolvimento sustentável.
+    </p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Missão</h2>
+    <p>Simplificar processos e entregar soluções estratégicas que impulsionem o crescimento sustentável de nossos clientes.</p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Visão</h2>
+    <p>Ser referência em inovação e excelência no mercado de consultoria, contribuindo para o sucesso de empresas em todo o Brasil.</p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Valores</h2>
+    <p><strong>Excelência:</strong> Buscar continuamente novas soluções.</p>
+    <p><strong>Ética:</strong> Atuar com transparência e responsabilidade.</p>
+    <p><strong>Inovação:</strong> Compromisso com resultados de alta qualidade.</p>
+    <p><strong>Colaboração:</strong> Valorização do trabalho em equipe e das parcerias.</p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Diferenciais</h2>
+    <p>1. <strong>Soluções Personalizadas:</strong> Estratégias exclusivas para cada cliente.</p>
+    <p>2. <strong>Sustentabilidade:</strong> Práticas alinhadas ao ESG.</p>
+    <p>3. <strong>Tecnologia Avançada:</strong> Ferramentas modernas e eficientes.</p>
+    <p>4. <strong>Equipe Especializada:</strong> Profissionais experientes e atualizados.</p>
+    <p>5. <strong>Abordagem Holística:</strong> Visão completa do negócio.</p>
+    <p>6. <strong>Resultados Mensuráveis:</strong> KPIs claros e precisos.</p>
+    <p>7. <strong>Capacitação:</strong> Treinamentos para potencializar equipes.</p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Resultados Possíveis</h2>
+    <p>1. <strong>Eficiência:</strong> Redução de custos e processos otimizados.</p>
+    <p>2. <strong>Gestão de Riscos:</strong> Identificação e mitigação eficaz.</p>
+    <p>3. <strong>Sustentabilidade:</strong> Impactos ambientais reduzidos.</p>
+    <p>4. <strong>Reputação:</strong> Marca fortalecida e reconhecida.</p>
+    <p>5. <strong>Crescimento:</strong> Novas oportunidades e aumento de receita.</p>
+    <p>6. <strong>Engajamento:</strong> Colaboradores mais satisfeitos e produtivos.</p>
+    <p>7. <strong>Compliance:</strong> Conformidade com regulamentos.</p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Nossos Serviços</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+      <div class="servico-card" style="flex: 1 1 300px; max-width: 320px;">
+        <i class="fas fa-leaf" style="font-size: 32px; color: var(--verde-musgo);"></i>
+        <h3 style="margin-top: 15px; font-size: 20px;">Licenciamentos Ambientais</h3>
+        <p>Processos e documentações para regularização ambiental junto aos órgãos competentes.</p>
+      </div>
+      <div class="servico-card" style="flex: 1 1 300px; max-width: 320px; ">
+        <i class="fas fa-helmet-safety" style="font-size: 32px; color: var(--verde-musgo);"></i>
+        <h3 style="margin-top: 15px; font-size: 20px;">Segurança do Trabalho</h3>
+        <p>Elaboração de programas, laudos e treinamentos conforme normas regulamentadoras.</p>
+      </div>
+      <div class="servico-card" style="flex: 1 1 300px; max-width: 320px; $1">
+        <i class="fas fa-chalkboard-teacher" style="font-size: 32px; color: var(--verde-musgo);"></i>
+        <h3 style="margin-top: 15px; font-size: 20px;">Treinamentos e Capacitações</h3>
+        <p>Cursos e palestras para conscientização, prevenção de riscos e promoção da saúde ocupacional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section$1 class="fade-in">
+    <a href="#ergonomia">
+      <img src="ergonomia.png" alt="Ergonomia NR 17">
+    </a>
+  </section>
+
+  <section$1 class="fade-in">
+    <h2>Ergonomia NR 17</h2>
+    <p>
+      A Norma Regulamentadora nº 17 (NR 17) estabelece parâmetros para a adaptação das condições de trabalho às características psicofisiológicas dos trabalhadores. Seu objetivo principal é proporcionar o máximo de conforto, segurança e desempenho eficiente no ambiente laboral.
+    </p>
+    <p>
+      A Riga Consultoria oferece avaliações ergonômicas completas, emissão de laudos técnicos (AET/AEP), treinamentos e implementação de medidas corretivas e preventivas, promovendo saúde ocupacional e conformidade com a legislação.
+    </p>
+  </section>
+
+  <section class="fade-in">
+  <h2>Contato</h2>
+  <p>Entre em contato conosco preenchendo o formulário abaixo:</p>
+  <form onsubmit="enviarWhatsApp(event)" style="max-width: 600px; margin: 0 auto; text-align: left;">
+    <p id="mensagem-status" style="display: none; text-align: center; color: green; margin-bottom: 15px; font-weight: bold;">
+      <span class="loader" style="display: inline-block; width: 16px; height: 16px; border: 3px solid #c8e6c9; border-top: 3px solid green; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></span>Aguardando redirecionamento para o WhatsApp...</p>
+    <label for="nome" style="display: block; margin-bottom: 10px;">Nome:</label>
+    <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
+
+    <label for="email" style="display: block; margin-bottom: 10px;">Email:</label>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
+
+    <label for="mensagem" style="display: block; margin-bottom: 10px;">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+
+    <button type="submit" style="background-color: var(--verde-musgo); color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">Enviar</button>
+  </form>
+</section>
+
+  <footer style="background-color: var(--verde-musgo); color: white; text-align: center; padding: 30px 20px; font-size: 14px;">
+    <p>&copy; 2024 Riga Consultoria. Todos os direitos reservados.</p>
+    <p>Desenvolvido com ❤ por Riga Consultoria</p>
+  </footer>
+
+  <a href="https://wa.me/5512985991058" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; padding: 14px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; font-size: 16px; display: flex; align-items: center; gap: 10px; transition: transform 0.3s ease-in-out;">
+  <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Faça já seu orçamento
+</a>
+</body>
+</html>
